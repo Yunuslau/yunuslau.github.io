@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yunus Lau – Self-taught Developer &amp; AI Assistant Developer</title>
+<meta name="description" content="Portfolio of Yunus Lau: web apps, personal tools, trading bots and AI automations built with Claude Code.">
+<meta property="og:title" content="Yunus Lau – Portfolio">
+<meta property="og:description" content="Self-taught Developer & AI Assistant Developer based in Jakarta.">
+<meta property="og:image" content="images/yunus.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111317;--muted:#4B5058;--soft:#6B7079;--line:#ECECEE;--line2:#E6E7EA;--bg2:#FAFAFA;--tile:#F5F5F6;--accent:#1F3A5F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:24px;padding-right:24px}
+.btn{display:inline-block;padding:14px 22px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid transparent;font-size:16px;cursor:pointer;font-family:inherit}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#2a2d33;color:#fff}
+.btn-light{background:#fff;color:var(--ink);border-color:#D9DADE}
+.btn-light:hover{background:#F3F4F6;color:var(--ink)}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:10}
+header .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{font-weight:700;font-size:18px;letter-spacing:-.01em}
+nav{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+nav a{padding:12px 14px;text-decoration:none;color:var(--muted);font-weight:500;font-size:15px}
+nav a:hover{color:var(--ink)}
+nav a.btn{padding:11px 18px;font-size:15px;color:#fff}
+.hero{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:88px;padding-bottom:88px}
+.hero-text{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.eyebrow{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-weight:700;font-size:clamp(38px,5.5vw,58px);line-height:1.06;letter-spacing:-.035em}
+.lead{margin:0;font-size:19px;line-height:1.65;color:var(--muted);max-width:600px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-photo{flex:1 1 280px;display:flex;justify-content:center}
+.hero-photo img{width:300px;max-width:100%;aspect-ratio:300/380;object-fit:cover;object-position:center top;border-radius:16px;border:1px solid var(--line)}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-top:32px;padding-bottom:32px}
+.stat b{display:block;font-size:30px;letter-spacing:-.02em}
+.stat span{color:var(--soft);font-size:15px}
+section h2{margin:0;font-size:clamp(28px,4vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.15}
+.work{padding-top:96px;padding-bottom:48px}
+.work-head{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+.work-head p{margin:10px 0 0;color:var(--soft)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:inherit;font-size:14px;font-weight:600;min-height:44px;padding:10px 16px;border-radius:8px;cursor:pointer;background:#fff;color:var(--muted);border:1px solid #D9DADE}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{text-align:left;font:inherit;color:inherit;background:#fff;border:1px solid var(--line2);border-radius:14px;padding:0;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s, box-shadow .15s, transform .15s}
+.card:hover{border-color:#C9CBD0;box-shadow:0 8px 24px rgba(17,19,23,.06);transform:translateY(-2px)}
+.thumb{height:170px;background:var(--tile);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:6px}
+.mock{background:#fff;border:1px solid var(--line2);border-radius:8px;padding:14px 16px;width:76%;display:flex;flex-direction:column;gap:8px}
+.dots{display:flex;gap:5px}.dots i{width:7px;height:7px;border-radius:50%;background:#D9DADE;display:block}
+.mock b{font-size:16px}
+.bar{height:6px;border-radius:3px;background:#EEEFF1}
+.card-body{padding:22px;display:flex;flex-direction:column;gap:8px;flex-grow:1}
+.cat{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.card-title{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.card-text{color:var(--muted);font-size:15px;line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tags span{font-size:12px;padding:4px 10px;border-radius:6px;background:#F3F4F6;color:var(--muted);font-weight:500}
+.more{margin-top:auto;padding-top:12px;font-weight:600;font-size:14px}
+.about{display:flex;flex-wrap:wrap;gap:48px;padding-top:72px;padding-bottom:72px;border-top:1px solid var(--line)}
+.about>div:first-child{flex:1 1 300px;min-width:0}
+.about-text{flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:16px;font-size:17px;line-height:1.7;color:var(--muted)}
+.about-text p{margin:0}
+.skills{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px}
+.skills span{padding:7px 12px;border-radius:6px;border:1px solid var(--line2);font-size:14px;color:var(--ink)}
+.contact{border-top:1px solid var(--line);background:var(--bg2)}
+.contact .wrap{padding-top:72px;padding-bottom:40px;display:flex;flex-direction:column;gap:28px}
+.contact p{margin:10px 0 0;color:var(--soft);font-size:17px}
+footer{color:var(--soft);font-size:14px;padding-top:40px;border-top:1px solid var(--line)}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(17,19,23,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.overlay.open{display:flex}
+.dialog{background:#fff;border-radius:16px;width:100%;max-width:780px;max-height:92vh;overflow-y:auto}
+.shots{background:var(--tile);border-bottom:1px solid var(--line);padding:28px 32px;display:flex;gap:16px;overflow-x:auto}
+.shots img{height:380px;width:auto;border-radius:10px;border:1px solid var(--line2);flex-shrink:0}
+.preview{background:var(--tile);border-bottom:1px solid var(--line);padding:32px}
+.browser{background:#fff;border:1px solid var(--line2);border-radius:10px;overflow:hidden}
+.browser-bar{display:flex;gap:6px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--line);align-items:center;font-size:12px;color:var(--soft)}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#D9DADE;display:block}
+.browser-bar span{margin-left:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser iframe{display:block;width:100%;height:380px;border:0;background:#fff}
+.d-body{padding:32px;display:flex;flex-direction:column;gap:18px}
+.d-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.d-top h3{margin:6px 0 0;font-size:28px;letter-spacing:-.02em}
+.close{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.d-body p{margin:0;font-size:16px;line-height:1.65;color:var(--muted)}
+.features{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.features li{display:flex;gap:10px;font-size:15px;color:var(--muted)}
+.features li::before{content:"—";color:var(--accent);font-weight:700}
+@media (max-width:600px){
+  .hero{padding-top:48px;padding-bottom:56px}
+  .shots{padding:20px}.shots img{height:300px}
+  .preview{padding:16px}.browser iframe{height:300px}
+  .d-body{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Yunus Lau</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn btn-dark">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div class="hero-text">
+      <div class="eyebrow">Jakarta, Indonesia</div>
+      <h1>Self-taught Developer &amp; AI Assistant Developer</h1>
+      <p class="lead">I build web apps, personal tools, trading bots and AI automations. With a background in IT support and QA, I focus on software that is reliable and easy to use.</p>
+      <div class="row">
+        <a href="#work" class="btn btn-dark">View my work</a>
+        <a href="#contact" class="btn btn-light">Contact me</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/yunus.jpg" alt="Portrait of Yunus Lau">
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b id="count">11</b><span>Projects built</span></div>
+      <div class="stat"><b>Since 2018</b><span>Working in IT professionally</span></div>
+      <div class="stat"><b>Web · Apps · AI</b><span>What I build</span></div>
+    </div>
+  </div>
+
+  <section id="work" class="wrap work">
+    <div class="work-head">
+      <div>
+        <h2>Selected work</h2>
+        <p>Click a project to see a preview.</p>
+      </div>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="about" class="wrap about">
+    <div><h2>From IT support to building my own products</h2></div>
+    <div class="about-text">
+      <p>Since 2018 I have worked in deployment, QA and IT support — testing applications, keeping systems running and training users. That experience taught me what people really need from software.</p>
+      <p>As a self-taught developer, I build every app and website with Claude Code as my AI coding partner — from e-commerce sites and trading tools to personal productivity apps and AI agents.</p>
+      <div class="skills">
+        <span>HTML &amp; JavaScript</span><span>React + Tailwind</span><span>Python</span><span>n8n Automation</span><span>Telegram Bots</span><span>QA &amp; Testing</span><span>Claude Code</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let’s work together</h2>
+      <p>Have an idea for an app or website? I’d be glad to help bring it to life.</p>
+    </div>
+    <div class="row">
+      <a href="mailto:yunuslau@gmail.com" class="btn btn-dark">yunuslau@gmail.com</a>
+      <a href="https://wa.me/6283890844979" target="_blank" rel="noopener" class="btn btn-light">WhatsApp · +62 838 9084 4979</a>
+    </div>
+    <footer>© <span id="year">2026</span> Yunus Lau, S.Kom. · Jakarta</footer>
+  </div>
+</section>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="d-title" id="dialog"></div>
+</div>
+
+<script>
+const P = [
+  { id:'tokomotif', cat:'Websites', name:'Tokomotif', demo:'https://tokomotif.vercel.app/', label:'Open live demo',
+    short:'Automotive e-commerce site combining a media hub and an online shop.',
+    long:'An automotive platform with two sides: a media section for articles and content, and a shop where sellers list products, with ratings and sales counts.',
+    features:['Media section for automotive content','Online shop with seller pages','Product ratings and sold counters'], tags:['React','Vite','Tailwind'] },
+  { id:'prospera', cat:'Websites', name:'Prospera Group', demo:'https://prospera-group.vercel.app/', label:'Open website',
+    short:'Company website for Prospera Group.',
+    long:'A corporate website presenting Prospera Group, its services and contact information.',
+    features:['Company profile and services','Responsive on mobile and desktop','Contact section'], tags:['Website','Company Profile'] },
+  { id:'connect', cat:'Apps', name:'Connect Market', demo:'https://connect-markets.vercel.app/', label:'Open live demo',
+    short:'Trading app for following and managing market activity.',
+    long:'A trading application for monitoring the market and managing trading activity in one place.',
+    features:['Market monitoring','Trade management'], tags:['Trading','Web App'] },
+  { id:'vault', cat:'Apps', name:'Secure Vault', demo:'https://secure-vault-six-gold.vercel.app/', label:'Open live demo',
+    short:'A secure place to store personal documents like ID cards and driver’s licenses.',
+    long:'A private digital vault for important personal documents — ID cards, driver’s licenses, passports and more — so they are organised and available when needed.',
+    features:['Store ID cards, licenses and other documents','Organised by document type','Private, protected access'], tags:['Security','Documents'] },
+  { id:'cakep', cat:'Apps', name:'CaKep Keuangan', demo:'https://cakep-keuangan-app.vercel.app/', label:'Open live demo',
+    short:'Personal finance app for tracking income and expenses.',
+    long:'A personal finance app to record income and expenses and get a clear picture of where money goes.',
+    features:['Record income and expenses','Spending overview by category'], tags:['Finance','Personal App'] },
+  { id:'todo', cat:'Apps', name:'To-Do List', demo:'https://personal-todo-list-hazel.vercel.app/', label:'Open live demo',
+    short:'A simple personal to-do list to plan and track daily tasks.',
+    long:'A lightweight personal to-do app for adding tasks, setting priorities and staying on top of the day.',
+    features:['Add and complete tasks','Status workflow and priorities','Simple, distraction-free design'], tags:['Productivity','Personal App'] },
+  { id:'diary', cat:'Apps', name:'Diary', demo:'https://diary-app-ruddy-two.vercel.app/', label:'Open live demo',
+    short:'A personal journaling app for daily notes and reflections.',
+    long:'A private diary app for writing daily entries and looking back on past notes.',
+    features:['Write daily entries','Browse past entries'], tags:['Journaling','Personal App'] },
+  { id:'loundri', cat:'Apps', name:'Loundri', demo:'https://loundri-rho.vercel.app/', label:'Open live demo',
+    short:'Modern laundry app with real-time order tracking and digital payments.',
+    long:'A mobile laundry service app where customers place orders, track their laundry in real time and pay digitally.',
+    features:['Real-time laundry order tracking','Digital payments','AI-powered features'], tags:['Mobile App','Service','Payments'] },
+  { id:'xau', cat:'AI & Automation', name:'XAUUSD Telegram Bot', label:'',
+    short:'Telegram bot that analyses gold (XAUUSD) on the 15-minute chart and sends complete trade setups.',
+    long:'A trading assistant for gold scalping. It reads market bias and structure, scores buy and sell conditions, then sends a full trade setup to Telegram. It follows each trade, alerts when to manage the position, and reports the final result automatically.',
+    features:['Market bias, structure and zones (H1 & M15)','Buy/sell score with entry zone, stop loss and take profit','Position management alerts and upcoming news warnings','Automatic trade result tracking'],
+    tags:['Python','Telegram Bot','Trading','XAUUSD'],
+    shots:[['xau-1.jpg','XAUUSD signal with market overview and trade setup'],['xau-2.jpg','Position management alerts and key levels'],['xau-3.jpg','Automatic trade result report']] },
+  { id:'owl', cat:'AI & Automation', name:'Owl AI Assistant (n8n)', label:'',
+    short:'Telegram assistant built with n8n that manages my tasks, diary and finances — even from voice notes.',
+    long:'An automation assistant built with n8n and connected to Telegram. Send a voice note and it becomes a task; ask for this week’s tasks, move them to another day, write a diary entry, or get an instant finance report from CaKep Keuangan.',
+    features:['Voice note → task saved automatically','List, check and reschedule tasks by chat','Daily diary entries from Telegram','Weekly and monthly finance reports'],
+    tags:['n8n','Telegram Bot','Voice','Automation'],
+    shots:[['owl-1.jpg','Voice notes saved as tasks'],['owl-2.jpg','Weekly task list and rescheduling'],['owl-3.jpg','Diary entry saved from Telegram'],['owl-4.jpg','Weekly finance report'],['owl-5.jpg','Daily and monthly spending check']] },
+  { id:'hermes', cat:'AI & Automation', name:'Hermes Agent', label:'',
+    short:'Personal AI agent on Telegram — a friendly assistant that chats, motivates and keeps track of my projects.',
+    long:'An AI agent connected to Telegram that acts as a personal assistant. It holds natural conversations, remembers ongoing projects, and supports my daily routine together with my To-Do and Diary apps.',
+    features:['Natural conversation straight from Telegram','Remembers ongoing projects and context','Works alongside my To-Do and Diary apps'],
+    tags:['AI Agent','Telegram Bot'],
+    shots:[['hermes-1.jpg','Hermes Agent greeting in Telegram'],['hermes-2.jpg','Hermes sharing motivational quotes'],['hermes-3.jpg','Hermes replying with quotes about life']] }
+];
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const grid = document.getElementById('grid'), filters = document.getElementById('filters');
+const overlay = document.getElementById('overlay'), dialog = document.getElementById('dialog');
+let current = 'All', lastFocus = null;
+
+function thumb(p){
+  if (p.shots) return `<img src="images/${p.shots[0][0]}" alt="" loading="lazy">`;
+  return `<div class="mock"><div class="dots"><i></i><i></i><i></i></div><b>${esc(p.name)}</b><div class="bar" style="width:88%"></div><div class="bar" style="width:58%"></div></div>`;
+}
+function renderFilters(){
+  filters.innerHTML = ['All','Websites','Apps','AI & Automation'].map(l =>
+    `<button type="button" data-f="${esc(l)}" aria-pressed="${l===current}">${esc(l)}</button>`).join('');
+}
+function renderGrid(){
+  grid.innerHTML = P.filter(p => current==='All' || p.cat===current).map(p => `
+    <button type="button" class="card" data-id="${p.id}">
+      <div class="thumb">${thumb(p)}</div>
+      <div class="card-body">
+        <div class="cat">${esc(p.cat)}</div>
+        <div class="card-title">${esc(p.name)}</div>
+        <div class="card-text">${esc(p.short)}</div>
+        <div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+        <div class="more">View project →</div>
+      </div>
+    </button>`).join('');
+}
+function openProject(id){
+  const p = P.find(x => x.id===id); if(!p) return;
+  lastFocus = document.activeElement;
+  const media = p.shots
+    ? `<div class="shots">${p.shots.map(s=>`<img src="images/${s[0]}" alt="${esc(s[1])}">`).join('')}</div>`
+    : `<div class="preview"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>${esc(p.demo.replace(/^https?:\/\//,''))}</span></div><iframe src="${esc(p.demo)}" title="Live preview of ${esc(p.name)}" loading="lazy"></iframe></div></div>`;
+  dialog.innerHTML = `${media}
+    <div class="d-body">
+      <div class="d-top">
+        <div><div class="cat">${esc(p.cat)}</div><h3 id="d-title">${esc(p.name)}</h3></div>
+        <button type="button" class="close" aria-label="Close" data-close>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111317" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <p>${esc(p.long)}</p>
+      <div><div style="font-weight:600;font-size:15px;margin-bottom:8px">Key features</div>
+        <ul class="features">${p.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>
+      <div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+      ${p.demo ? `<div class="row"><a class="btn btn-dark" href="${esc(p.demo)}" target="_blank" rel="noopener">${esc(p.label)} ↗</a></div>` : ''}
+    </div>`;
+  overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  dialog.querySelector('[data-close]').focus();
+}
+function closeProject(){
+  overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = ''; dialog.innerHTML = '';
+  if (lastFocus) lastFocus.focus();
+}
+filters.addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return; current = b.dataset.f; renderFilters(); renderGrid(); });
+grid.addEventListener('click', e => { const c = e.target.closest('.card'); if(c) openProject(c.dataset.id); });
+overlay.addEventListener('click', e => { if (e.target===overlay || e.target.closest('[data-close]')) closeProject(); });
+document.addEventListener('keydown', e => { if (e.key==='Escape' && overlay.classList.contains('open')) closeProject(); });
+document.getElementById('count').textContent = P.length;
+document.getElementById('year').textContent = new Date().getFullYear();
+renderFilters(); renderGrid();
+</script>
+</body>
+</html>
