@@ -34,10 +34,23 @@ a{color:var(--accent)}
 header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:10}
 header .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
 .logo{font-weight:700;font-size:18px;letter-spacing:-.01em}
-nav{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+nav{display:flex;gap:4px;align-items:center;flex-wrap:wrap;margin-left:auto}
 nav a{padding:12px 14px;text-decoration:none;color:var(--muted);font-weight:500;font-size:15px}
 nav a:hover{color:var(--ink)}
 nav a.btn{padding:11px 18px;font-size:15px;color:#fff}
+.head-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lang{position:relative;display:inline-flex;align-items:center;background:#F3F4F6;border:1px solid var(--line2);border-radius:999px;padding:3px}
+.lang-icon{display:flex;align-items:center;padding:0 6px 0 8px;color:var(--soft)}
+.lang-track{position:relative;display:inline-flex}
+.lang-pill{position:absolute;top:0;bottom:0;left:0;width:50%;background:#fff;border-radius:999px;box-shadow:0 1px 2px rgba(17,19,23,.08),0 2px 8px rgba(17,19,23,.08);transition:transform .28s cubic-bezier(.3,.7,.2,1)}
+.lang[data-lang="id"] .lang-pill{transform:translateX(100%)}
+.lang button{position:relative;z-index:1;font:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;min-width:46px;min-height:38px;padding:0 12px;border:0;border-radius:999px;background:none;color:var(--soft);cursor:pointer;transition:color .2s}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{color:var(--ink)}
+.lang button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main,#contact{transition:opacity .18s ease}
+body.swapping main,body.swapping #contact{opacity:.35}
+@media (prefers-reduced-motion:reduce){.lang-pill,main,#contact{transition:none}}
 .hero{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:88px;padding-bottom:88px}
 .hero-text{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px}
 .eyebrow{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
@@ -117,6 +130,12 @@ footer{color:var(--soft);font-size:14px;padding-top:40px;border-top:1px solid va
 .features{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
 .features li{display:flex;gap:10px;font-size:15px;color:var(--muted)}
 .features li::before{content:"—";color:var(--accent);font-weight:700}
+@media (max-width:640px){
+  header .wrap{row-gap:6px}
+  .logo{order:1}
+  .lang-slot{order:2;margin-left:auto}
+  nav{order:3;width:100%;margin-left:-14px}
+}
 @media (max-width:600px){
   .hero{padding-top:48px;padding-bottom:56px}
   .shots{padding:20px}.shots img{height:300px}
@@ -131,10 +150,20 @@ footer{color:var(--soft);font-size:14px;padding-top:40px;border-top:1px solid va
   <div class="wrap">
     <div class="logo">Yunus Lau</div>
     <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="btn btn-dark">Get in touch</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" class="btn btn-dark" data-i18n="nav.contact">Get in touch</a>
     </nav>
+    <div class="lang-slot">
+      <div class="lang" id="lang" role="group" aria-label="Language" data-lang="en">
+        <span class="lang-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+        <span class="lang-track">
+          <span class="lang-pill" aria-hidden="true"></span>
+          <button type="button" data-lang="en" aria-pressed="true" title="English" aria-label="English">EN</button>
+          <button type="button" data-lang="id" aria-pressed="false" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">ID</button>
+        </span>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -142,31 +171,31 @@ footer{color:var(--soft);font-size:14px;padding-top:40px;border-top:1px solid va
   <section class="wrap hero">
     <div class="hero-text">
       <div class="eyebrow">Jakarta, Indonesia</div>
-      <h1>Self-taught developer building web apps &amp; AI&nbsp;assistants</h1>
-      <p class="lead">I build web apps, personal tools, trading bots and AI automations. With a background in IT support and QA, I focus on software that is reliable and easy to use.</p>
+      <h1 data-i18n="hero.title">Self-taught developer building web apps &amp; AI&nbsp;assistants</h1>
+      <p class="lead" data-i18n="hero.lead">I build web apps, personal tools, trading bots and AI automations. With a background in IT support and QA, I focus on software that is reliable and easy to use.</p>
       <div class="row">
-        <a href="#work" class="btn btn-dark">View my work</a>
-        <a href="yunus-lau.vcf" class="btn btn-light">Save contact</a>
+        <a href="#work" class="btn btn-dark" data-i18n="hero.cta">View my work</a>
+        <a href="yunus-lau.vcf" class="btn btn-light" data-i18n="save">Save contact</a>
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/yunus.webp" alt="Portrait of Yunus Lau" width="600" height="799" fetchpriority="high">
+      <img src="images/yunus.webp" data-i18n-alt="hero.alt" alt="Portrait of Yunus Lau" width="600" height="799" fetchpriority="high">
     </div>
   </section>
 
   <div class="stats">
     <div class="wrap">
-      <div class="stat"><b id="count">11</b><span>Projects built</span></div>
-      <div class="stat"><b>Since 2018</b><span>Working in IT professionally</span></div>
-      <div class="stat"><b>Web · Apps · AI</b><span>What I build</span></div>
+      <div class="stat"><b id="count">11</b><span data-i18n="stat.projects">Projects built</span></div>
+      <div class="stat"><b data-i18n="stat.since">Since 2018</b><span data-i18n="stat.it">Working in IT professionally</span></div>
+      <div class="stat"><b data-i18n="stat.what">Web · Apps · AI</b><span data-i18n="stat.build">What I build</span></div>
     </div>
   </div>
 
   <section id="work" class="wrap work">
     <div class="work-head">
       <div>
-        <h2>Selected work</h2>
-        <p>Click a project for details and a live demo.</p>
+        <h2 data-i18n="work.title">Selected work</h2>
+        <p data-i18n="work.sub">Click a project for details and a live demo.</p>
       </div>
       <div class="filters" id="filters"></div>
     </div>
@@ -174,12 +203,12 @@ footer{color:var(--soft);font-size:14px;padding-top:40px;border-top:1px solid va
   </section>
 
   <section id="about" class="wrap about">
-    <div><h2>From IT support to building my own products</h2></div>
+    <div><h2 data-i18n="about.title">From IT support to building my own products</h2></div>
     <div class="about-text">
-      <p>Since 2018 I have worked in deployment, QA and IT support — testing applications, keeping systems running and training users. That experience taught me what people really need from software.</p>
-      <p>As a self-taught developer, I build every app and website with Claude Code as my AI coding partner — from e-commerce sites and trading tools to personal productivity apps and AI agents.</p>
+      <p data-i18n="about.p1">Since 2018 I have worked in deployment, QA and IT support — testing applications, keeping systems running and training users. That experience taught me what people really need from software.</p>
+      <p data-i18n="about.p2">As a self-taught developer, I build every app and website with Claude Code as my AI coding partner — from e-commerce sites and trading tools to personal productivity apps and AI agents.</p>
       <div class="skills">
-        <span>HTML &amp; JavaScript</span><span>React + Tailwind</span><span>Python</span><span>n8n Automation</span><span>Hermes Agent</span><span>Telegram Bots</span><span>QA &amp; Testing</span><span>Claude Code</span><span>Google AI Studio</span>
+        <span>HTML &amp; JavaScript</span><span>React + Tailwind</span><span>Python</span><span data-i18n="skill.n8n">n8n Automation</span><span>Hermes Agent</span><span data-i18n="skill.tg">Telegram Bots</span><span data-i18n="skill.qa">QA &amp; Testing</span><span>Claude Code</span><span>Google AI Studio</span>
       </div>
     </div>
   </section>
@@ -190,20 +219,20 @@ footer{color:var(--soft);font-size:14px;padding-top:40px;border-top:1px solid va
     <div class="contact-grid">
       <div class="contact-main">
         <div>
-          <h2>Let’s work together</h2>
-          <p>Have an idea for an app or website? I’d be glad to help bring it to life.</p>
+          <h2 data-i18n="contact.title">Let’s work together</h2>
+          <p data-i18n="contact.sub">Have an idea for an app or website? I’d be glad to help bring it to life.</p>
         </div>
         <div class="row">
           <a href="mailto:yunuslau@gmail.com" class="btn btn-dark">yunuslau@gmail.com</a>
           <a href="https://wa.me/6283890844979" target="_blank" rel="noopener" class="btn btn-light">WhatsApp · +62 838 9084 4979</a>
         </div>
         <div class="row">
-          <a href="yunus-lau.vcf" class="btn btn-light"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Save contact</a>
+          <a href="yunus-lau.vcf" class="btn btn-light"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span data-i18n="save">Save contact</span></a>
         </div>
       </div>
       <div class="qr">
-        <img src="images/qr.png" alt="QR code linking to yunuslau.github.io" width="112" height="112">
-        <div><b>Scan to open</b><span>Share this portfolio from your phone — yunuslau.github.io</span></div>
+        <img src="images/qr.png" data-i18n-alt="qr.alt" alt="QR code linking to yunuslau.github.io" width="112" height="112">
+        <div><b data-i18n="qr.title">Scan to open</b><span data-i18n="qr.sub">Share this portfolio from your phone — yunuslau.github.io</span></div>
       </div>
     </div>
     <footer>© <span id="year">2026</span> Yunus Lau, S.Kom. · Jakarta</footer>
@@ -271,7 +300,124 @@ const P = [
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const grid = document.getElementById('grid'), filters = document.getElementById('filters');
 const overlay = document.getElementById('overlay'), dialog = document.getElementById('dialog');
-let current = 'All', lastFocus = null;
+let current = 'All', lastFocus = null, openId = null;
+
+/* ---------- i18n ---------- */
+const UI = {
+  en: {
+    'meta.title':'Yunus Lau – Self-taught Developer Building Web Apps & AI Assistants',
+    'nav.work':'Work','nav.about':'About','nav.contact':'Get in touch',
+    'hero.title':'Self-taught developer building web apps &amp; AI&nbsp;assistants',
+    'hero.lead':'I build web apps, personal tools, trading bots and AI automations. With a background in IT support and QA, I focus on software that is reliable and easy to use.',
+    'hero.cta':'View my work','save':'Save contact','hero.alt':'Portrait of Yunus Lau',
+    'stat.projects':'Projects built','stat.since':'Since 2018','stat.it':'Working in IT professionally','stat.what':'Web · Apps · AI','stat.build':'What I build',
+    'work.title':'Selected work','work.sub':'Click a project for details and a live demo.',
+    'about.title':'From IT support to building my own products',
+    'about.p1':'Since 2018 I have worked in deployment, QA and IT support — testing applications, keeping systems running and training users. That experience taught me what people really need from software.',
+    'about.p2':'As a self-taught developer, I build every app and website with Claude Code as my AI coding partner — from e-commerce sites and trading tools to personal productivity apps and AI agents.',
+    'skill.n8n':'n8n Automation','skill.tg':'Telegram Bots','skill.qa':'QA &amp; Testing',
+    'contact.title':'Let’s work together','contact.sub':'Have an idea for an app or website? I’d be glad to help bring it to life.',
+    'qr.title':'Scan to open','qr.sub':'Share this portfolio from your phone — yunuslau.github.io','qr.alt':'QR code linking to yunuslau.github.io',
+    'lang.group':'Language',
+    'f.All':'All','f.Websites':'Websites','f.Apps':'Apps','f.AI & Automation':'AI & Automation',
+    'more':'View project →','features':'Key features','close':'Close','shot':'Screenshot of',
+    'l.demo':'Open live demo','l.site':'Open website'
+  },
+  id: {
+    'meta.title':'Yunus Lau – Developer Otodidak Pembuat Aplikasi Web & Asisten AI',
+    'nav.work':'Karya','nav.about':'Tentang','nav.contact':'Hubungi saya',
+    'hero.title':'Developer otodidak yang membangun aplikasi web &amp; asisten&nbsp;AI',
+    'hero.lead':'Saya membuat aplikasi web, tools pribadi, bot trading, dan otomasi AI. Dengan latar belakang IT support dan QA, saya fokus membuat software yang andal dan mudah digunakan.',
+    'hero.cta':'Lihat karya saya','save':'Simpan kontak','hero.alt':'Foto Yunus Lau',
+    'stat.projects':'Proyek dibuat','stat.since':'Sejak 2018','stat.it':'Berkarier profesional di bidang IT','stat.what':'Web · Aplikasi · AI','stat.build':'Yang saya buat',
+    'work.title':'Karya pilihan','work.sub':'Klik proyek untuk melihat detail dan demo langsung.',
+    'about.title':'Dari IT support hingga membangun produk sendiri',
+    'about.p1':'Sejak 2018 saya bekerja di bidang deployment, QA, dan IT support — menguji aplikasi, menjaga sistem tetap berjalan, dan melatih pengguna. Pengalaman itu mengajarkan saya apa yang benar-benar dibutuhkan orang dari sebuah software.',
+    'about.p2':'Sebagai developer otodidak, saya membangun setiap aplikasi dan website bersama Claude Code sebagai partner coding AI — mulai dari situs e-commerce dan tools trading hingga aplikasi produktivitas pribadi dan agen AI.',
+    'skill.n8n':'Otomasi n8n','skill.tg':'Bot Telegram','skill.qa':'QA &amp; Pengujian',
+    'contact.title':'Mari bekerja sama','contact.sub':'Punya ide untuk aplikasi atau website? Saya siap membantu mewujudkannya.',
+    'qr.title':'Pindai untuk membuka','qr.sub':'Bagikan portfolio ini dari HP Anda — yunuslau.github.io','qr.alt':'Kode QR menuju yunuslau.github.io',
+    'lang.group':'Bahasa',
+    'f.All':'Semua','f.Websites':'Website','f.Apps':'Aplikasi','f.AI & Automation':'AI & Otomasi',
+    'more':'Lihat proyek →','features':'Fitur utama','close':'Tutup','shot':'Tangkapan layar',
+    'l.demo':'Buka demo langsung','l.site':'Buka website'
+  }
+};
+
+const P_ID = {
+  tokomotif:{ short:'Situs e-commerce otomotif yang menggabungkan portal berita dan toko online.',
+    long:'Platform otomotif dengan dua sisi: bagian media untuk berita dan artikel, serta toko tempat penjual memajang produk lengkap dengan rating dan jumlah terjual.',
+    features:['Portal berita dan konten otomotif','Toko online dengan halaman penjual','Rating produk dan penghitung jumlah terjual'] },
+  prospera:{ short:'Website perusahaan untuk organisasi pengembangan bisnis dan kepemimpinan di bidang jasa keuangan, berbasis di Jakarta.',
+    long:'Website korporat untuk Prospera Group, organisasi di industri jasa keuangan yang berbasis di Jakarta dengan fokus membangun SDM dan menciptakan peluang. Situs ini menampilkan filosofi perusahaan, lima bidang keahlian, dan misinya dengan gaya elegan dan premium, dilengkapi ajakan untuk memulai percakapan serta partner login.',
+    features:['Hero dengan tagline brand: “Building People. Creating Opportunities.”','Empat pilar: Trust, Growth, Partnership, dan Opportunity','Lima bidang keahlian, dari pengembangan bisnis hingga pelatihan dan mentoring','Bagian tentang, misi, dan kontak, dengan partner login'] },
+  connect:{ short:'Dashboard trading emas (XAUUSD) yang menampilkan sinyal live, level penting, dan track record terverifikasi.',
+    long:'Dashboard trading khusus member untuk Prospera Group, ditenagai bot Telegram XAUUSD buatan saya. Trader login untuk melihat status sinyal saat ini, setup trading lengkap beserta struktur pasar di baliknya, lalu memeriksa performa sinyal sebelumnya — win rate per bulan, jumlah menang dan kalah, serta 50 sinyal terakhir.',
+    features:['Status sinyal live dengan zona entry, stop loss, dan dua target take profit','Bias H1/H4, zona premium/discount, order block, dan fair value gap','Chart tren XAUUSD interaktif','Track record: win rate per bulan dan hasil sinyal terbaru','Akses khusus member dengan login'] },
+  vault:{ short:'Tempat aman untuk menyimpan dokumen pribadi seperti KTP dan SIM.',
+    long:'Brankas digital pribadi untuk dokumen penting — KTP, SIM, paspor, dan lainnya — agar tertata rapi dan siap saat dibutuhkan.',
+    features:['Simpan KTP, SIM, dan dokumen lainnya','Tertata berdasarkan jenis dokumen','Akses pribadi yang terlindungi'] },
+  cakep:{ short:'Aplikasi keuangan pribadi yang membaca struk dengan AI dan mengisi transaksi secara otomatis.',
+    long:'CaKeP (Catatan Keuangan Pribadi) membuat pencatatan uang harian jadi cepat: foto struk belanja dan Gemini AI akan mengisi transaksinya untuk Anda. Saldo dirangkum untuk hari ini, minggu ini, dan bulan ini, dan datanya dipakai untuk laporan keuangan di Owl AI Assistant saya di Telegram.',
+    features:['Scan struk dengan Gemini AI — transaksi terisi otomatis','Pemasukan, pengeluaran, dan saldo hari ini, minggu ini, dan bulan ini','Masuk dengan Google — tanpa kata sandi yang perlu diingat','Privat sejak awal: setiap pengguna hanya melihat datanya sendiri (Cloud Firestore)'] },
+  todo:{ short:'Daftar tugas pribadi yang sederhana untuk merencanakan dan memantau tugas harian.',
+    long:'Aplikasi to-do ringan untuk menambah tugas, mengatur prioritas, dan tetap terkendali sepanjang hari.',
+    features:['Tambah dan selesaikan tugas','Alur status dan prioritas','Desain sederhana tanpa distraksi'] },
+  diary:{ short:'Jurnal harian pribadi tempat Anda bisa menulis atau menggambar hari Anda.',
+    long:'My Daily Notes adalah jurnal pribadi yang tenang. Setiap hari punya catatannya sendiri, ditulis dengan mode ketik atau digambar tangan dengan mode sketsa. Hari yang sudah lewat akan terkunci sehingga diary tetap menjadi catatan yang jujur, dan catatan juga bisa ditambahkan dari Telegram lewat Owl AI Assistant saya.',
+    features:['Mode ketik untuk menulis dan mode gambar untuk sketsa tangan','Satu catatan per hari; hari yang lewat terkunci agar catatan tetap jujur','Telusuri dan baca kembali catatan lama berdasarkan tanggal','Masuk dengan Google; setiap pengguna hanya bisa melihat catatannya sendiri'] },
+  loundri:{ short:'Aplikasi laundry modern dengan pelacakan pesanan real-time dan pembayaran digital.',
+    long:'Aplikasi layanan laundry di HP tempat pelanggan memesan, melacak cucian secara real-time, dan membayar secara digital.',
+    features:['Pelacakan pesanan laundry secara real-time','Pembayaran digital','Fitur berbasis AI'] },
+  xau:{ short:'Bot Telegram yang menganalisis emas (XAUUSD) di chart 15 menit dan mengirim setup trading lengkap.',
+    long:'Asisten trading untuk scalping emas. Bot membaca bias dan struktur pasar, memberi skor kondisi buy dan sell, lalu mengirim setup trading lengkap ke Telegram. Bot juga memantau setiap trade, memberi peringatan kapan posisi perlu dikelola, dan melaporkan hasil akhirnya secara otomatis.',
+    features:['Bias pasar, struktur, dan zona (H1 & M15)','Skor buy/sell dengan zona entry, stop loss, dan take profit','Peringatan manajemen posisi dan berita penting yang akan datang','Pencatatan hasil trade otomatis'],
+    shots:['Sinyal XAUUSD dengan ringkasan pasar dan setup trading','Peringatan manajemen posisi dan level penting','Laporan hasil trade otomatis'] },
+  owl:{ short:'Asisten Telegram buatan n8n yang mengelola tugas, diary, dan keuangan saya — bahkan dari voice note.',
+    long:'Asisten otomasi yang dibangun dengan n8n dan terhubung ke Telegram. Kirim voice note dan langsung jadi tugas; tanyakan tugas minggu ini, pindahkan ke hari lain, tulis catatan diary, atau minta laporan keuangan instan dari CaKep Keuangan.',
+    features:['Voice note → tugas tersimpan otomatis','Lihat, cek, dan jadwal ulang tugas lewat chat','Catatan diary harian dari Telegram','Laporan keuangan mingguan dan bulanan'],
+    shots:['Voice note tersimpan sebagai tugas','Daftar tugas mingguan dan penjadwalan ulang','Catatan diary tersimpan dari Telegram','Laporan keuangan mingguan','Cek pengeluaran harian dan bulanan'] },
+  hermes:{ short:'Agen AI pribadi di Telegram — asisten ramah yang bisa diajak ngobrol, memberi motivasi, dan mengingat proyek-proyek saya.',
+    long:'Agen AI yang terhubung ke Telegram dan berperan sebagai asisten pribadi. Hermes bisa diajak ngobrol secara natural, mengingat proyek yang sedang berjalan, dan mendukung rutinitas harian saya bersama aplikasi To-Do dan Diary.',
+    features:['Percakapan natural langsung dari Telegram','Mengingat proyek dan konteks yang sedang berjalan','Bekerja bersama aplikasi To-Do dan Diary saya'],
+    shots:['Sapaan Hermes Agent di Telegram','Hermes membagikan kutipan motivasi','Hermes membalas dengan kutipan tentang hidup'] }
+};
+
+let lang = 'en';
+const t = k => (UI[lang] && UI[lang][k]) || UI.en[k] || k;
+const tp = (p, field) => (lang === 'id' && P_ID[p.id] && P_ID[p.id][field]) || p[field];
+const shotAlt = (p, i) => (lang === 'id' && P_ID[p.id] && P_ID[p.id].shots && P_ID[p.id].shots[i]) || p.shots[i][1];
+const labelOf = p => p.label === 'Open website' ? t('l.site') : t('l.demo');
+
+function applyStatic(){
+  document.documentElement.lang = lang;
+  document.title = t('meta.title');
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = t(el.dataset.i18nAlt); });
+  const box = document.getElementById('lang');
+  box.dataset.lang = lang; box.setAttribute('aria-label', t('lang.group'));
+  box.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+}
+function setLang(next, opts = {}){
+  if (!UI[next]) next = 'en';
+  const changed = next !== lang; lang = next;
+  const render = () => {
+    applyStatic(); renderFilters(); renderGrid();
+    if (overlay.classList.contains('open') && openId) openProject(openId, true);
+  };
+  if (changed && opts.animate && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.body.classList.add('swapping');
+    setTimeout(() => { render(); document.body.classList.remove('swapping'); }, 160);
+  } else render();
+  if (opts.persist){
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+    try { const u = new URL(location.href); if (lang === 'en') u.searchParams.delete('lang'); else u.searchParams.set('lang', lang); history.replaceState(null, '', u); } catch(e) {}
+  }
+}
+document.getElementById('lang').addEventListener('click', e => {
+  const b = e.target.closest('button[data-lang]'); if (b) setLang(b.dataset.lang, {animate:true, persist:true});
+});
+
 
 function thumb(p){
   if (p.thumb) return `<div class="thumb web"><img src="images/${p.thumb}" alt="" loading="lazy" width="960" height="600"></div>`;
@@ -283,50 +429,51 @@ function mock(p){
 }
 function renderFilters(){
   filters.innerHTML = ['All','Websites','Apps','AI & Automation'].map(l =>
-    `<button type="button" data-f="${esc(l)}" aria-pressed="${l===current}">${esc(l)}</button>`).join('');
+    `<button type="button" data-f="${esc(l)}" aria-pressed="${l===current}">${esc(t('f.'+l))}</button>`).join('');
 }
 function renderGrid(){
   grid.innerHTML = P.filter(p => current==='All' || p.cat===current).map(p => `
     <button type="button" class="card" data-id="${p.id}">
       ${thumb(p)}
       <div class="card-body">
-        <div class="cat">${esc(p.cat)}</div>
+        <div class="cat">${esc(t('f.'+p.cat))}</div>
         <div class="card-title">${esc(p.name)}</div>
-        <div class="card-text">${esc(p.short)}</div>
+        <div class="card-text">${esc(tp(p,'short'))}</div>
         <div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
-        <div class="more">View project →</div>
+        <div class="more">${esc(t('more'))}</div>
       </div>
     </button>`).join('');
 }
-function openProject(id){
+function openProject(id, rerender){
   const p = P.find(x => x.id===id); if(!p) return;
-  lastFocus = document.activeElement;
+  if (!rerender) lastFocus = document.activeElement;
+  openId = id;
   const media = p.shots
-    ? `<div class="shots">${p.shots.map(s=>`<img src="images/${s[0]}" alt="${esc(s[1])}">`).join('')}</div>`
+    ? `<div class="shots">${p.shots.map((s,i)=>`<img src="images/${s[0]}" alt="${esc(shotAlt(p,i))}">`).join('')}</div>`
     : `<div class="preview"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>${esc(p.demo.replace(/^https?:\/\//,''))}</span></div>${p.thumb
-        ? `<a class="browser-shot" href="${esc(p.demo)}" target="_blank" rel="noopener"><img src="images/${p.thumb}" alt="Screenshot of ${esc(p.name)}"><span class="hint">${esc(p.label)} ↗</span></a>`
+        ? `<a class="browser-shot" href="${esc(p.demo)}" target="_blank" rel="noopener"><img src="images/${p.thumb}" alt="${esc(t('shot'))} ${esc(p.name)}"><span class="hint">${esc(labelOf(p))} ↗</span></a>`
         : `<div class="browser-empty">${mock(p)}</div>`}</div></div>`;
   dialog.innerHTML = `${media}
     <div class="d-body">
       <div class="d-top">
-        <div><div class="cat">${esc(p.cat)}</div><h3 id="d-title">${esc(p.name)}</h3></div>
-        <button type="button" class="close" aria-label="Close" data-close>
+        <div><div class="cat">${esc(t('f.'+p.cat))}</div><h3 id="d-title">${esc(p.name)}</h3></div>
+        <button type="button" class="close" aria-label="${esc(t('close'))}" data-close>
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111317" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </div>
-      <p>${esc(p.long)}</p>
-      <div><div style="font-weight:600;font-size:15px;margin-bottom:8px">Key features</div>
-        <ul class="features">${p.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>
+      <p>${esc(tp(p,'long'))}</p>
+      <div><div style="font-weight:600;font-size:15px;margin-bottom:8px">${esc(t('features'))}</div>
+        <ul class="features">${tp(p,'features').map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>
       <div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
-      ${p.demo ? `<div class="row"><a class="btn btn-dark" href="${esc(p.demo)}" target="_blank" rel="noopener">${esc(p.label)} ↗</a></div>` : ''}
+      ${p.demo ? `<div class="row"><a class="btn btn-dark" href="${esc(p.demo)}" target="_blank" rel="noopener">${esc(labelOf(p))} ↗</a></div>` : ''}
     </div>`;
   overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
-  dialog.querySelector('[data-close]').focus();
+  if (!rerender) dialog.querySelector('[data-close]').focus();
 }
 function closeProject(){
   overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
-  document.body.style.overflow = ''; dialog.innerHTML = '';
+  document.body.style.overflow = ''; dialog.innerHTML = ''; openId = null;
   if (lastFocus) lastFocus.focus();
 }
 filters.addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return; current = b.dataset.f; renderFilters(); renderGrid(); });
@@ -335,7 +482,11 @@ overlay.addEventListener('click', e => { if (e.target===overlay || e.target.clos
 document.addEventListener('keydown', e => { if (e.key==='Escape' && overlay.classList.contains('open')) closeProject(); });
 document.getElementById('count').textContent = P.length;
 document.getElementById('year').textContent = new Date().getFullYear();
-renderFilters(); renderGrid();
+(function initLang(){
+  let pick = 'en';
+  try { const q = new URLSearchParams(location.search).get('lang'); if (q && UI[q]) pick = q; else { const sv = localStorage.getItem('lang'); if (sv && UI[sv]) pick = sv; } } catch(e) {}
+  setLang(pick);
+})();
 </script>
 </body>
 </html>
